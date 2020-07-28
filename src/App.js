@@ -20,7 +20,6 @@ const App = () => {
           Search!
         </button>
       </form>
-      <h1 onClick={() => setbtnCounter(btnCounter + 1)}>{btnCounter}</h1>
     </div>
   );
 };
