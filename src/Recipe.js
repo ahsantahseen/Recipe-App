@@ -1,13 +1,13 @@
 import React from "react";
 
-const Recipe = () => {
+const RecipeFunc = (props) => {
   return (
     <div>
-      <h1>Title</h1>
-      <p>Calories</p>
-      <img src="" alt=""></img>
+      <h1>{props.title}</h1>
+      <p>{props.calories.toFixed(2)} Calories </p>
+      <img src={props.image} alt=""></img>
     </div>
   );
 };
 
-export default Recipe;
+export default RecipeFunc;

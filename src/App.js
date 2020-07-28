@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Recipe from "./Recipe";
+import RecipeFunc from "./Recipe";
 
 const App = () => {
   const APP_ID = "e61a6aed"; //PLEASE USE YOUR OWN API DETAILS HERE
@@ -13,10 +13,11 @@ const App = () => {
   const [Recipe, setRecipe] = useState([]);
   const getApiData = async () => {
     const Response = await fetch(
-      `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`
+      `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const Data = await Response.json();
     setRecipe(Data.hits);
+    console.log(Data.hits);
   };
   return (
     <div className="App">
@@ -27,6 +28,9 @@ const App = () => {
           Search!
         </button>
       </form>
+      {Recipe.map((recipe) => (
+        <RecipeFunc title={recipe.recipe.label} image={recipe.recipe.image} calories={recipe.recipe.calories}></RecipeFunc>
+      ))}
     </div>
   );
 };
