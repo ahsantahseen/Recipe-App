@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import RecipeFunc from "./Recipe/Recipe";
+import Recipies from "./Recipe/Recipies";
 import uuid from "react-uuid";
+import Footerbar from "./UI/footerbar/footerbar";
 
 const App = () => {
   const APP_ID = "e61a6aed"; //PLEASE USE YOUR OWN API DETAILS HERE
   const APP_KEY = "123c4b2f7a9e266be9f8b1cd1ce5e6d3"; //AND HERE TOO..
 
-  const [ShouldSearch, setShouldSearch] = useState(false);
   const [SearchQuery, setSearchQuery] = useState("");
   const [Recipe, setRecipe] = useState([]);
   const [Search, setSearch] = useState("");
@@ -22,7 +22,6 @@ const App = () => {
     );
     const Data = await Response.json();
     setRecipe(Data.hits);
-    console.log(uuid());
   };
 
   const updateSearch = (e) => {
@@ -37,6 +36,9 @@ const App = () => {
   return (
     <div className="App">
       <h1>RECIPE APP</h1>
+      <p>
+        <strong>Made by Ahsan Tahseen</strong>
+      </p>
       <form className="Search-Form" onSubmit={getSearch}>
         <input
           className="Search-Bar"
@@ -48,17 +50,8 @@ const App = () => {
           Search!
         </button>
       </form>
-      <div className="recipe">
-        {Recipe.map((recipe) => (
-          <RecipeFunc
-            title={recipe.recipe.label}
-            image={recipe.recipe.image}
-            calories={recipe.recipe.calories}
-            ingredients={recipe.recipe.ingredients}
-            key={uuid()}
-          ></RecipeFunc>
-        ))}
-      </div>
+      <Recipies Recipies={Recipe} Key={uuid()}></Recipies>
+      <Footerbar></Footerbar>
     </div>
   );
 };

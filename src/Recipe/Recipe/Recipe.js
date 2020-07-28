@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Recipe.module.css";
+import uuid from "react-uuid";
 const RecipeFunc = (props) => {
   return (
     <div className={classes.recipeCard}>
@@ -8,7 +9,7 @@ const RecipeFunc = (props) => {
       <img className={classes.recipeCardimg} src={props.image} alt=""></img>
       <ol>
         {props.ingredients.map((ingredient) => (
-          <li>{ingredient.text}</li>
+          <li key={uuid()}>{ingredient.text}</li>
         ))}
       </ol>
     </div>
