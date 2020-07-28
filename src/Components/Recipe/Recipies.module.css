@@ -1,5 +1,6 @@
 .recipies {
   display: flex;
   justify-content: space-around;
+  word-wrap: break-word;
   flex-wrap: wrap;
 }

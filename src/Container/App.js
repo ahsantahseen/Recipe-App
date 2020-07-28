@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Recipies from "./Recipe/Recipies";
+import Recipies from "../Components/Recipe/Recipies";
 import uuid from "react-uuid";
-import Footerbar from "./UI/footerbar/footerbar";
+import Footerbar from "../Components/UI/footerbar/footerbar";
+import InputFrom from "../Components/UI/InputForm/InputFrom";
 
 const App = () => {
   const APP_ID = "e61a6aed"; //PLEASE USE YOUR OWN API DETAILS HERE
@@ -39,17 +40,11 @@ const App = () => {
       <p>
         <strong>Made by Ahsan Tahseen</strong>
       </p>
-      <form className="Search-Form" onSubmit={getSearch}>
-        <input
-          className="Search-Bar"
-          placeholder="Enter Dish"
-          value={Search}
-          onChange={updateSearch}
-        ></input>
-        <button className="Search-Button" type="submit">
-          Search!
-        </button>
-      </form>
+      <InputFrom
+        Search={Search}
+        updateSearch={updateSearch}
+        getSearch={getSearch}
+      ></InputFrom>
       <Recipies Recipies={Recipe} Key={uuid()}></Recipies>
       <Footerbar></Footerbar>
     </div>

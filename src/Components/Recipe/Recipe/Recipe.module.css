@@ -8,6 +8,12 @@
   background: white;
   align-items: center;
   min-width: 40%;
+  word-wrap: break-word;
+  padding: 20px;
+}
+.ole {
+  word-wrap: break-word;
+  flex-wrap: nowrap;
 }
 .recipeCardimg {
   border: 50%;

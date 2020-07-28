@@ -1,24 +1,17 @@
-.App {
-  min-height: 100vh;
-  text-align: center;
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-}
-
-.Search-form {
+.SearchForm {
   min-width: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.Search-Bar {
+.SearchBar {
   min-width: 50%;
   padding: 10px;
   border: none;
 }
-.Search-Button {
+.SearchButton {
   background: lightcoral;
   border: none;
   padding: 10px 20px;
   color: white;
 }
-

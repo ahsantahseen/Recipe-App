@@ -7,9 +7,11 @@ const RecipeFunc = (props) => {
       <h1>{props.title}</h1>
       <p>{props.calories.toFixed(2)} Calories </p>
       <img className={classes.recipeCardimg} src={props.image} alt=""></img>
-      <ol>
+      <ol className={classes.ole}>
         {props.ingredients.map((ingredient) => (
-          <li key={uuid()}>{ingredient.text}</li>
+          <li className={classes.ole} key={uuid()}>
+            {ingredient.text}
+          </li>
         ))}
       </ol>
     </div>
